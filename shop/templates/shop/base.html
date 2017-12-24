@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+{#    <script src="https://ucarecdn.com/libs/widget/3.2.1/uploadcare.full.min.js"></script>#}
+    <title>{% block title %}Магазин{% endblock %}</title>
+{#    {% load bootstrap3 %}#}
+{#    <script src="{% bootstrap_jquery_url %}"></script>#}
+{#    {% bootstrap_javascript %}#}
+
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <a href="/" class="logo">Джанго-ШОП</a>
+
+    <div id="register">
+        {% if request.user.is_anonymous %}
+            <a href="{% url "shop:register" %}">Зарегистрироваться</a>
+        {% endif %}
+    </div>
+        {% if request.user.is_authenticated %}
+            <ul class="menu">
+                <li>Добрый день, {{ request.user.username }}</li>
+                <li><a href="{% url "shop:logout" %}">Выйти</a></li>
+            </ul>
+            {% endif %}
+    </div>
+    <div id="subheader">
+        <div class="cart">
+            {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    Ваша корзина:
+                    <a href="{% url "cart:cart_detail" %}">
+                        {{ total_items }} штук{{ total_items|pluralize }},{{ cart.get_total_price }}грн
+                    </a>
+                {% else %}
+                    Ваша корзина пуста.
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+{#Для загрузки файлов#}
+{#    <script>#}
+{#        UPLOADCARE_LOCALE = "ua";#}
+{#        UPLOADCARE_LIVE = false;#}
+{#        UPLOADCARE_PUBLIC_KEY = "92862fdbd5114f940ea1";#}
+{#    </script>#}
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="{% static 'js/jquery.backgroundvideo.min.js' %}"></script>
+    <script>
+      $(document).ready(function() {
+        var videobackground = new $.backgroundVideo($('body'), {
+          "align": "centerXY",
+          "width": 1280,
+          "height": 720,
+          "path": "/static/media/",
+          "filename": "video",
+          "types": ["mp4","ogg","webm"],
+          "preload": true,
+          "autoplay": true,
+          "loop": true
+        });
+      });
+    </script>
+</body>
+</html>
