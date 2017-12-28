@@ -1,5 +1,6 @@
 {% extends "shop/base.html" %}
 {% load static %}
+{%  load comments %}
 
 {% block title %}
     {% if category %}{{ category.name }}{% else %}Товары{% endif %}
@@ -28,6 +29,8 @@
                 </a>
                 <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
                 {{ product.price }}грн
+                {% get_comment_count for product as comments_count%}
+                <p>Отзывов о товаре: {{ comments_count }} </p>
             </div>
         {% endfor %}
     </div>

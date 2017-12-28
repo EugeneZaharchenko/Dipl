@@ -118,7 +118,6 @@ ul.errorlist {
    padding:0;
 }
 
-
 #header {
     padding:10px 100px;
     font-size:18px;
@@ -139,6 +138,10 @@ ul.errorlist {
     color: #ec075d;
     font-size:32px;
     margin-right:10%;
+}
+
+.honeypot {
+    display: none;
 }
 
 #subheader .cart {

@@ -9,12 +9,15 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^orders/', include('orders.urls', namespace='orders')),
+    url(r'^comments/', include('django_comments.urls')),
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
     #url(r'^payment/', include('payment.urls', namespace='payment')),
     # url(r'^login/$', login, name='login'),
 
     url(r'^logout-then-login/$', logout_login, name='logout_then_login'),
     url(r'^', include('shop.urls', namespace='shop'), ),
+    # sign_in/sign_out via FB
+    url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
 ]
 
 if settings.DEBUG:

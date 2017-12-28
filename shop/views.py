@@ -63,27 +63,28 @@ def product_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     products_list = Product.objects.filter(available=True)
-    paginator = Paginator(products_list, 2)
-
 
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products_list = products_list.filter(category=category)
 
-    page = request.GET.get('page')
+        page = request.GET.get('page')
+        paginator = Paginator(products_list, 2)
 
-    try:
-        products = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        products = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        products = paginator.page(paginator.num_pages)
+        try:
+            products_list = paginator.page(page)
+
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            products_list = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            products_list = paginator.page(paginator.num_pages)
+
 
     return render(request, 'shop/product/list.html', {'category': category,
                                                       'categories': categories,
-                                                      'products': products})
+                                                      'products': products_list})
 
 
 def product_detail(request, id, slug):

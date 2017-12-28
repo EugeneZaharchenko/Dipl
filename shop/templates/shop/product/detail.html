@@ -1,5 +1,6 @@
 {% extends "shop/base.html" %}
 {% load static %}
+{% load comments %}
 
 {% block title %}
     {{ product.name }}
@@ -10,13 +11,43 @@
         <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
         <h1>{{ product.name }}</h1>
         <h2><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
-        <p class="price">{{ product.price }}гр</p>
+        <p class="price">{{ product.price }}грн</p>
         <form action="{% url "cart:cart_add" product.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}
             <input type="submit" value="Добавить в корзину">
         </form>
         {{ product.description|linebreaks }}
+        {% if user.is_authenticated %}
+            {% get_comment_form for product as comment_form %}
+            <form action="{% comment_form_target %}" method="post">
+                {% csrf_token %}
+                {% for field in comment_form.hidden_fields %}
+                    {{ field }}
+                {% endfor %}
+                {% for field in comment_form.visible_fields %}
+                    <div class="form-field">
+                        {% if field.errors.count > 0 %}
+                            <div class="error-list">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    {% if field.name == "honeypot" %}
+                        <div style="display: none;">{{ field }}</div>
+                    {% else %}
+                    <div class="label">{{ field.label }}</div>
+                    <div class="control">{{ field }}</div>
+                    {% endif %}
+                    </div>
+                {% endfor %}
+                <div class="submit-button btn-default"><input type="submit" name="submit" value="Комментировать"></div>
+            </form>
+
+            {% else %}
+            <p>Чтобы добавить комментарий, выполните <a href="{% url "shop:login" %}">вход на сайт</a>.</p>
+
+        {% endif %}
+        {% render_comment_list for product %}
     </div>
 {% endblock %}
 

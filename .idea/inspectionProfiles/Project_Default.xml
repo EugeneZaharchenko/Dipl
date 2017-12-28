@@ -16,8 +16,71 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="1">
+          <list size="64">
             <item index="0" class="java.lang.String" itemvalue="pytamqp" />
+            <item index="1" class="java.lang.String" itemvalue="restless" />
+            <item index="2" class="java.lang.String" itemvalue="html5lib" />
+            <item index="3" class="java.lang.String" itemvalue="tabulate" />
+            <item index="4" class="java.lang.String" itemvalue="nltk" />
+            <item index="5" class="java.lang.String" itemvalue="psycopg2" />
+            <item index="6" class="java.lang.String" itemvalue="py" />
+            <item index="7" class="java.lang.String" itemvalue="react" />
+            <item index="8" class="java.lang.String" itemvalue="pycparser" />
+            <item index="9" class="java.lang.String" itemvalue="feedparser" />
+            <item index="10" class="java.lang.String" itemvalue="pyasn1-modules" />
+            <item index="11" class="java.lang.String" itemvalue="oauthlib" />
+            <item index="12" class="java.lang.String" itemvalue="PyDispatcher" />
+            <item index="13" class="java.lang.String" itemvalue="lxml" />
+            <item index="14" class="java.lang.String" itemvalue="payment" />
+            <item index="15" class="java.lang.String" itemvalue="pyparsing" />
+            <item index="16" class="java.lang.String" itemvalue="Markdown" />
+            <item index="17" class="java.lang.String" itemvalue="paypal-reporter" />
+            <item index="18" class="java.lang.String" itemvalue="WeasyPrint" />
+            <item index="19" class="java.lang.String" itemvalue="hyperlink" />
+            <item index="20" class="java.lang.String" itemvalue="service-identity" />
+            <item index="21" class="java.lang.String" itemvalue="pdfminer3k" />
+            <item index="22" class="java.lang.String" itemvalue="patterns" />
+            <item index="23" class="java.lang.String" itemvalue="slugify" />
+            <item index="24" class="java.lang.String" itemvalue="zope.interface" />
+            <item index="25" class="java.lang.String" itemvalue="splinter" />
+            <item index="26" class="java.lang.String" itemvalue="Pyphen" />
+            <item index="27" class="java.lang.String" itemvalue="whitenoise" />
+            <item index="28" class="java.lang.String" itemvalue="gunicorn" />
+            <item index="29" class="java.lang.String" itemvalue="parsel" />
+            <item index="30" class="java.lang.String" itemvalue="pdfminer.six" />
+            <item index="31" class="java.lang.String" itemvalue="python-social-auth" />
+            <item index="32" class="java.lang.String" itemvalue="pypiwin32" />
+            <item index="33" class="java.lang.String" itemvalue="networkx" />
+            <item index="34" class="java.lang.String" itemvalue="queuelib" />
+            <item index="35" class="java.lang.String" itemvalue="optional-django" />
+            <item index="36" class="java.lang.String" itemvalue="rosetta" />
+            <item index="37" class="java.lang.String" itemvalue="pluggy" />
+            <item index="38" class="java.lang.String" itemvalue="numpy" />
+            <item index="39" class="java.lang.String" itemvalue="pyasn1" />
+            <item index="40" class="java.lang.String" itemvalue="w3lib" />
+            <item index="41" class="java.lang.String" itemvalue="unicode-slugify" />
+            <item index="42" class="java.lang.String" itemvalue="mpeg1audio" />
+            <item index="43" class="java.lang.String" itemvalue="selenium" />
+            <item index="44" class="java.lang.String" itemvalue="pyOpenSSL" />
+            <item index="45" class="java.lang.String" itemvalue="scipy" />
+            <item index="46" class="java.lang.String" itemvalue="pytest" />
+            <item index="47" class="java.lang.String" itemvalue="social" />
+            <item index="48" class="java.lang.String" itemvalue="pattern3" />
+            <item index="49" class="java.lang.String" itemvalue="packaging" />
+            <item index="50" class="java.lang.String" itemvalue="tempora" />
+            <item index="51" class="java.lang.String" itemvalue="incremental" />
+            <item index="52" class="java.lang.String" itemvalue="gmane" />
+            <item index="53" class="java.lang.String" itemvalue="pattern-observer" />
+            <item index="54" class="java.lang.String" itemvalue="pdfrw" />
+            <item index="55" class="java.lang.String" itemvalue="social-auth-core" />
+            <item index="56" class="java.lang.String" itemvalue="pandas" />
+            <item index="57" class="java.lang.String" itemvalue="social-auth-app-django" />
+            <item index="58" class="java.lang.String" itemvalue="Unidecode" />
+            <item index="59" class="java.lang.String" itemvalue="pycryptodome" />
+            <item index="60" class="java.lang.String" itemvalue="pytz" />
+            <item index="61" class="java.lang.String" itemvalue="ply" />
+            <item index="62" class="java.lang.String" itemvalue="pattern-gen" />
+            <item index="63" class="java.lang.String" itemvalue="Pillow" />
           </list>
         </value>
       </option>
