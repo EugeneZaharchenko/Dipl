@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^', include('shop.urls', namespace='shop'), ),
     # sign_in/sign_out via FB
     url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
+    url('social-auth/', include('social.apps.django_app.urls', namespace='social')),
 ]
 
 if settings.DEBUG:

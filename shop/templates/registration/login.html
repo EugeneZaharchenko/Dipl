@@ -1,9 +1,10 @@
 {% extends "shop/base.html" %}
+{% load static %}
 
 {% block title %}Log-in{% endblock %}
 
 {% block content %}
-    <h1>Log-in</h1>
+    <h1>Вход в учетную запись</h1>
     {% if form.errors %}
         <p>Ваши имя или пароль не совпали. Пожалуйста, попробуйте еще раз</p>
     {% else %}
@@ -16,16 +17,43 @@
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}" />
 {#            {% if site_name=="" %} {% endif %}#}
-            <p><input type="submit" value="Log-in"></p>
+            <p><input type="submit" value="Войти"></p>
         </form>
 {#        <p><a href="{% url "password_reset" %}">Забыли пароль?</a></p>#}
     </div>
     
-    <div class="social">
-{#        <ul>#}
-{#            <li class="facebook"><a href="{% url "social:begin" "facebook" %}">Войти через Facebook</a></li>#}
-{#            <li class="twitter"><a href="{% url "social:begin" "twitter" %}">Войти через Twitter</a></li>#}
-{#            <li class="google"><a href="{% url "social:begin" "google-oauth2" %}">Войти через Google</a></li>#}
-{#        </ul>#}
+    <div style="float: left;
+                display: inline-flex;
+                margin-top: 10vh;
+                margin-left: -22%;"
+         class="social">
+    <p style="margin-top: 15vh;
+              font-size: 4vh;">Войти через: </p>
+        <ul style="margin-left: -22%;
+                    margin-top: 7vh;
+                    float: left;
+                    list-style-type: none;">
+            <li class="facebook">
+                <a href="{% url "social:begin" "facebook" %}">
+                    <img style="width: 22%;
+                                margin-top: -5vh;
+                                margin-left: 27%;" class="img-responsive" src="{% static "img/Social-facebook-box-blue.ico" %}" alt="Facebook">
+                </a>
+            </li>
+            <li class="twitter">
+                <a href="{% url "social:begin" "twitter" %}">
+                    <img style="width: 20%;
+                                margin-top: 1vh;
+                                margin-left: 27%;" class="img-responsive" src="{% static "img/twitter.png" %}" alt="Twitter">
+                </a>
+            </li>
+            <li class="twitter">
+                <a href="{% url "social:begin" "google" %}">
+                    <img style="width: 20%;
+                                margin-top: 1vh;
+                                margin-left: 27%;" class="img-responsive" src="{% static "img/google-plus.png" %}" alt="google">
+                </a>
+            </li>
+        </ul>
     </div>
 {% endblock %}

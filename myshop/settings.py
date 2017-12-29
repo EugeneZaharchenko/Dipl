@@ -27,7 +27,7 @@ SECRET_KEY = '97vqo*t)m)h_3pjjw4(=9m&kc*-_a*30icly_ifg$80jeg_cbz'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+# 'djangosite.com', 'localhost'
 
 # Application definition
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'oauth2_provider',
     'social_django',
     'rest_framework_social_oauth2',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -139,3 +140,18 @@ SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id, name, email'
 }
+
+SOCIAL_AUTH_TWITTER_KEY = 'mueO71DYaMkSnK2MRaUzPvUQN'
+SOCIAL_AUTH_TWITTER_SECRET = 'rB7sT0aOolFoiQ2W8RYAPMsLsX6jXuA8O97QrHCq5IDomK9qm8'
+
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'shop.social_auth_pipeline.create_user',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
