@@ -3,6 +3,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import login as login, logout as logout, logout_then_login as logout_login
+from django.contrib.sitemaps.views import sitemap
+from shop.sitemaps import ProductSitemap
+
+sitemaps = {
+    'products': ProductSitemap,
+}
 
 
 urlpatterns = [
@@ -13,7 +19,8 @@ urlpatterns = [
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
     #url(r'^payment/', include('payment.urls', namespace='payment')),
     # url(r'^login/$', login, name='login'),
-
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'),
     url(r'^logout-then-login/$', logout_login, name='logout_then_login'),
     url(r'^', include('shop.urls', namespace='shop'), ),
     # sign_in/sign_out via FB
